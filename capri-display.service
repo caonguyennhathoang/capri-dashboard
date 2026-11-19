@@ -1,0 +1,11 @@
+[Unit]
+Description=Capri ILI9341 SPI GIF player
+BindsTo=capri-dashboard.service
+After=capri-dashboard.service
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/python3 %h/.local/share/capri-dashboard/lcd_player.py %t/capri-display.gif
+TimeoutStartSec=6
+TimeoutStopSec=5
+NoNewPrivileges=true

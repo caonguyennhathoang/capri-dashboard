@@ -1,0 +1,13 @@
+[Unit]
+Description=Capri LAN dashboard
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 %h/.local/share/capri-dashboard/server.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

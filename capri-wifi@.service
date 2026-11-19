@@ -1,0 +1,13 @@
+[Unit]
+Description=Apply a Capri dashboard Wi-Fi request
+After=NetworkManager.service
+Requires=NetworkManager.service
+
+[Service]
+ExecStart=/usr/bin/python3 -I /usr/local/libexec/capri-wifi-switch.py
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal
+UMask=0077
+NoNewPrivileges=yes
+RuntimeMaxSec=120

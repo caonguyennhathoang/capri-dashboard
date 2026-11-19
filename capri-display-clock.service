@@ -1,0 +1,12 @@
+[Unit]
+Description=Capri TFT idle clock
+BindsTo=capri-dashboard.service
+After=capri-dashboard.service capri-display.service
+Conflicts=capri-display.service
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/python3 %h/.local/share/capri-dashboard/lcd_clock.py %t/capri-display-clock.rotation
+TimeoutStartSec=6
+TimeoutStopSec=5
+NoNewPrivileges=true
