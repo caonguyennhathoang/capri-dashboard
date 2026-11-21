@@ -1402,7 +1402,7 @@ async function poll(){
     const response=await fetch('/api/dashboard',{signal:AbortSignal.timeout(4000)});
     if (!response.ok) throw Error(response.status);
     const result=await response.json(), last=result.history.at(-1);
-    if (last && Date.now()/1000-last.time>15) throw Error('stale');
+    if (last && (result.server_time ?? Date.now()/1000)-last.time>15) throw Error('stale');
     render(result);
   } catch{
     el('status').dataset.live='false';

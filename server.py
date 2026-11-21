@@ -759,7 +759,7 @@ class Handler(BaseHTTPRequestHandler):
             kind = "application/json"
         elif self.path == "/api/dashboard":
             with LOCK:
-                data = json.dumps(dict(history=list(HISTORY), **DETAILS)).encode()
+                data = json.dumps(dict(history=list(HISTORY), server_time=time.time(), **DETAILS)).encode()
             kind = "application/json"
         elif self.path == "/api/admin":
             self.send_json(dict(can_control=self.is_admin(),
