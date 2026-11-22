@@ -112,6 +112,8 @@ Trình cài cần `sudo` để đặt dịch vụ và cấp quyền dùng socket
 
 ## Kiểm tra khi có lỗi
 
+Nếu dashboard báo dữ liệu đã cũ, kiểm tra dịch vụ trên Pi và kết nối mạng. Bản hiện tại tính tuổi mẫu theo đồng hồ Pi.
+
 | Hiện tượng | Cách kiểm tra |
 | --- | --- |
 | Trang không mở | Chạy `systemctl --user status capri-dashboard.service`. Kiểm tra địa chỉ nội bộ và cổng `8765`. |
